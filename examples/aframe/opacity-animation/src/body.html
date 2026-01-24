@@ -1,0 +1,46 @@
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+<a-scene
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  xrextras-gesture-detector
+  xrweb="allowedDevices: any">
+  <a-assets>
+    <a-asset-item id="doty" src="./assets/doty.glb"></a-asset-item>
+  </a-assets>
+
+  <a-entity
+    light="
+      type: directional; 
+      castShadow: true; 
+      color: white; 
+      intensity: 0.5"
+    position="5 10 7">
+  </a-entity>
+
+  <a-light type="ambient"></a-light>
+
+  <a-camera position="0 2 2"></a-camera>
+
+  <a-box
+    position="1 0.5 -1"
+    material="
+      color: #AD50FF; shader: flat; opacity: 1;
+      src: https://cdn.8thwall.com/web/assets/cube-texture.png"
+    animation="property: material.opacity; to: 0; dur: 4000">
+  </a-box>
+
+  <a-entity
+    gltf-model="#doty"
+    position="-1 0 -1"
+    scale="5 5 5"
+    fade-in
+    animation="property: model-fade.opacity;
+          from: 1; to: 0; dur: 2500">
+  </a-entity>
+
+  <a-plane height="2000" width="2000" rotation="-90 0 0" material="shader: shadow; opacity: 0.67">
+  </a-plane>
+</a-scene>

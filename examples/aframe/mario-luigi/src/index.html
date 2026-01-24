@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>mario + luigi</title>
+  <meta itemprop="name" content="mario + luigi">
+  <meta name="twitter:title" content="mario + luigi">
+  <meta property="og:title" content="mario + luigi">
+  <meta property="og:site_name" content="mario + luigi">
+  <meta name="description" content="this project demonstrates multi face tracking with mario and luigi face effects">
+  <meta itemprop="description" content="this project demonstrates multi face tracking with mario and luigi face effects">
+  <meta property="og:description" content="this project demonstrates multi face tracking with mario and luigi face effects">
+  <meta name="twitter:description" content="this project demonstrates multi face tracking with mario and luigi face effects">
+  <script crossorigin="anonymous" src="./external/scripts/8frame-1.3.0.min.js"></script>
+  <script crossorigin="anonymous" src="./external/xrextras/xrextras.js"></script>
+  <script crossorigin="anonymous" src="./external/landing-page/landing-page.js"></script>
+  <script crossorigin="anonymous" src="./external/xr/xr.js" async="true" data-preload-chunks="face, slam">
+  </script>
+
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- head.html is optional; elements will be added to your html head before app.js is loaded. -->
+
+<!-- Use "8thwall:" meta tags to hook into 8th Wall's build process and developer tools. -->
+<meta name="8thwall:renderer" content="aframe:1.3.0"/>
+<meta name="8thwall:package" content="@8thwall.xrextras"/>
+<meta name="8thwall:package" content="@8thwall.landing-page"/>
+
+<!-- Other external scripts and meta tags can also be added. -->
+
+</head>
+
+<body>
+<script src="bundle.js"></script>
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+<a-scene
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  xrface="allowedDevices: any; cameraDirection: front; mirroredDisplay: true; maxDetections:3;">
+  <!-- 3D models, images, videos -->
+  <a-assets>
+    <a-asset-item id="head-occluder" src="./assets/head-occluder.glb"></a-asset-item>
+    <a-asset-item id="mario-cap" src="./assets/mario-cap.glb"></a-asset-item>
+    <a-asset-item id="luigi-cap" src="./assets/luigi-cap.glb"></a-asset-item>
+  </a-assets>
+
+  <!-- face mesh -->
+  <xrextras-resource id="face-texture" src="./assets/face-alpha.png"></xrextras-resource>
+  <xrextras-resource id="face-alpha" src="./assets/face-alpha.png"> </xrextras-resource>
+  <xrextras-basic-material
+    id="face-mesh"
+    tex="#face-texture"
+    alpha="#face-alpha"
+    opacity="0.9"></xrextras-basic-material>
+
+  <!-- media recorder -->
+  <xrextras-capture-button></xrextras-capture-button>
+  <xrextras-capture-preview></xrextras-capture-preview>
+
+  <a-camera
+    look-controls="enabled: false"
+    wasd-controls="enabled: false"
+    position="0 2 0"></a-camera>
+
+  <!-- content  -->
+  <xrextras-faceanchor id="mario" face-id="1">
+    <a-entity gltf-model="#head-occluder" position="0 0 0.2" scale="1.2 1.2 1.5" xrextras-hider-material></a-entity>
+    <!-- <xrextras-face-mesh material-resource="#face-mesh"></xrextras-face-mesh> -->
+    <xrextras-face-attachment point="forehead">
+      <a-entity
+        gltf-model="#mario-cap"
+        position="-0.1 0 1"
+        scale="0.011 0.011 0.011"
+        rotation="15 180 0"></a-entity>
+    </xrextras-face-attachment>
+  </xrextras-faceanchor>
+
+  <xrextras-faceanchor id="luigi" face-id="2">
+    <a-entity gltf-model="#head-occluder" position="0 -0.1 0.03"  scale="1.2 1.2 1.5" xrextras-hider-material></a-entity>
+    <!-- <xrextras-face-mesh material-resource="#face-mesh"></xrextras-face-mesh> -->
+      <a-entity
+        gltf-model="#luigi-cap"
+        position="-0.1 0.27 0.2"
+        scale="0.011 0.011 0.011"
+        rotation="15 180 0"></a-entity>
+    </xrextras-face-attachment>
+  </xrextras-faceanchor>
+
+  <a-light type="directional" target="#mario" position="0 1.8 3" intensity="2.5"></a-light>
+  <a-light type="directional" target="#luigi" position="0 1.8 3" intensity="2.5"></a-light>
+
+  <a-light type="ambient" intensity="0.3"></a-light>
+</a-scene>
+
+</body>
+
+</html>

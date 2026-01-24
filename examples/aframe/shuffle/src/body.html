@@ -1,0 +1,101 @@
+<!-- Copyright (c) 2021 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+<!-- recenter button -->
+<img id="recenterBtn" class="topBar" src="assets/icons/recenter.svg" />
+
+<!-- intro card -->
+<div id="introCard">
+  <div id="cardContainer">
+    <h1>Shuffle</h1>
+    <p>Watch the box containing the blue ball while the boxes shuffle. Tap to reveal.</p>
+    <button id="begin">Start</button>
+  </div>
+</div>
+
+<!-- instructions -->
+<div id="instructions" class="bottomBar">
+  <p>Tap to Place</p>
+</div>
+
+<!-- scene -->
+<a-scene
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  renderer="colorManagement: true"
+  xrweb="allowedDevices: any"
+  sequence
+  overlay>
+  <a-assets>
+    <img id="grid" src="./assets/textures/grid.png" />
+    <img id="glow" src="./assets/textures/glow.png" />
+  </a-assets>
+
+  <a-camera
+    id="camera"
+    position="0 6 6"
+    raycaster="objects: .cantap"
+    cursor="fuse: false; rayOrigin: mouse;">
+  </a-camera>
+
+  <!-- lights -->
+  <a-entity
+    light="
+      type: directional;
+      intensity: 0.8;
+      castShadow: true;
+      shadowMapHeight:2048;
+      shadowMapWidth:2048;
+      shadowCameraTop: 10;
+      target: #model;
+      shadowRadius: 4"
+    xrextras-attach="target: model; offset: 1 15 3;"
+    shadow>
+  </a-entity>
+
+  <a-light type="ambient" intensity="0.8"></a-light>
+
+  <a-plane
+    id="ground"
+    rotation="-90 0 0"
+    position="0 -.05 0"
+    width="1000"
+    height="1000"
+    material="shader: shadow; opacity: 0.3"
+    shadow>
+  </a-plane>
+
+  <!-- models -->
+  <a-entity id="models" visible="false" xrextras-pinch-scale>
+    <a-entity id="pivot"></a-entity>
+    <a-entity id="model"></a-entity>
+    <a-entity id="model1" position="-2 0 0" shadow="receive: true">
+      <a-box id="box1" class="cantap" position="0 0.5 0"></a-box>
+      <a-circle
+        radius="3"
+        position="0 -0.01 0"
+        rotation="-90 0 0"
+        src="#glow"
+        transparent="true"
+        opacity="0"></a-circle>
+    </a-entity>
+    <a-entity id="model2" position="0 0 0" shadow="receive: true">
+      <a-box id="box2" class="cantap" position="0 0.5 0"></a-box>
+      <a-circle
+        radius="3"
+        position="0 -0.02 0"
+        rotation="-90 0 0"
+        src="#glow"
+        transparent="true"
+        opacity="0"></a-circle>
+    </a-entity>
+    <a-entity id="model3" position="2 0 0" shadow="receive: true">
+      <a-box id="box3" class="cantap" position="0 0.5 0"></a-box>
+      <a-circle radius="3" rotation="-90 0 0" src="#glow" transparent="true" opacity="0"></a-circle>
+    </a-entity>
+  </a-entity>
+
+  <a-plane width="500" height="500" rotation="-90 0 0" position="0 -0.1 0" xrextras-hider-material>
+  </a-plane>
+</a-scene>

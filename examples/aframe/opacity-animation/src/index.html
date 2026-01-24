@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>A-Frame: animate opacity</title>
+  <meta itemprop="name" content="A-Frame: animate opacity">
+  <meta name="twitter:title" content="A-Frame: animate opacity">
+  <meta property="og:title" content="A-Frame: animate opacity">
+  <meta property="og:site_name" content="A-Frame: animate opacity">
+  <meta name="description" content="this project demonstrates how to fade primitive and model opacity.">
+  <meta itemprop="description" content="this project demonstrates how to fade primitive and model opacity.">
+  <meta property="og:description" content="this project demonstrates how to fade primitive and model opacity.">
+  <meta name="twitter:description" content="this project demonstrates how to fade primitive and model opacity.">
+  <script crossorigin="anonymous" src="./external/scripts/8frame-1.4.1.min.js"></script>
+  <script crossorigin="anonymous" src="./external/xrextras/xrextras.js"></script>
+  <script crossorigin="anonymous" src="./external/landing-page/landing-page.js"></script>
+  <script crossorigin="anonymous" src="./external/xr/xr.js" async="true" data-preload-chunks="face, slam">
+  </script>
+
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- head.html is optional; elements will be added to your html head before app.js is loaded. -->
+
+<!-- Use "8thwall:" meta tags to hook into 8th Wall's build process and developer tools. -->
+<meta name="8thwall:renderer" content="aframe:1.4.1"/>
+<meta name="8thwall:package" content="@8thwall.xrextras"/>
+<meta name="8thwall:package" content="@8thwall.landing-page"/>
+
+<!-- Other external scripts and meta tags can also be added. -->
+
+</head>
+
+<body>
+<script src="bundle.js"></script>
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+<a-scene
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  xrextras-gesture-detector
+  xrweb="allowedDevices: any">
+  <a-assets>
+    <a-asset-item id="doty" src="./assets/doty.glb"></a-asset-item>
+  </a-assets>
+
+  <a-entity
+    light="
+      type: directional; 
+      castShadow: true; 
+      color: white; 
+      intensity: 0.5"
+    position="5 10 7">
+  </a-entity>
+
+  <a-light type="ambient"></a-light>
+
+  <a-camera position="0 2 2"></a-camera>
+
+  <a-box
+    position="1 0.5 -1"
+    material="
+      color: #AD50FF; shader: flat; opacity: 1;
+      src: https://cdn.8thwall.com/web/assets/cube-texture.png"
+    animation="property: material.opacity; to: 0; dur: 4000">
+  </a-box>
+
+  <a-entity
+    gltf-model="#doty"
+    position="-1 0 -1"
+    scale="5 5 5"
+    fade-in
+    animation="property: model-fade.opacity;
+          from: 1; to: 0; dur: 2500">
+  </a-entity>
+
+  <a-plane height="2000" width="2000" rotation="-90 0 0" material="shader: shadow; opacity: 0.67">
+  </a-plane>
+</a-scene>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "dependencyId": "f4e2a6f6-1aab-47ee-934d-6310b6a2aac7",
+  "moduleId": "4e280efa-d6fa-4d1e-b51d-7b9797f1f0f1",
+  "alias": "gradient-shaders",
+  "target": {
+    "type": "version",
+    "level": "minor",
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  }
+}
