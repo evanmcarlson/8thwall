@@ -1,0 +1,35 @@
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+<a-scene
+  xrextras-gesture-detector
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  renderer="colorManagement:true;"
+  xrweb
+  play-video
+>
+  <a-assets>
+    <video id="video" loop muted playsinline src="./assets/video.mp4"></video>
+  </a-assets>
+
+  <!-- 0 4 10 -->
+  <a-camera
+    position="0 2 2"
+    raycaster="objects: .cantap"
+    cursor="fuse: false; rayOrigin: mouse;"
+  >
+  </a-camera>
+
+  <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
+
+  <a-light type="ambient" intensity="0.7"></a-light>
+
+  <xrextras-named-image-target name="shirt">
+    <a-plane
+      id="videoEl"
+      material="shader: chromakey; src: #video; color: 0 0 0; opacity: 0"
+    ></a-plane>
+  </xrextras-named-image-target>
+</a-scene>

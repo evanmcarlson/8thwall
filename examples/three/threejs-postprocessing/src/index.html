@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>r155 postprocessing</title>
+  <meta itemprop="name" content="r155 postprocessing">
+  <meta name="twitter:title" content="r155 postprocessing">
+  <meta property="og:title" content="r155 postprocessing">
+  <meta property="og:site_name" content="r155 postprocessing">
+  <meta name="description" content="this project demonstrates postprocessing setup in the cloud editor for newer versions of three.js that use javascript modules">
+  <meta itemprop="description" content="this project demonstrates postprocessing setup in the cloud editor for newer versions of three.js that use javascript modules">
+  <meta property="og:description" content="this project demonstrates postprocessing setup in the cloud editor for newer versions of three.js that use javascript modules">
+  <meta name="twitter:description" content="this project demonstrates postprocessing setup in the cloud editor for newer versions of three.js that use javascript modules">
+  <script crossorigin="anonymous" src="./external/xrextras/xrextras.js"></script>
+  <script crossorigin="anonymous" src="./external/landing-page/landing-page.js"></script>
+  <script crossorigin="anonymous" src="./external/xr/xr.js" async="true" data-preload-chunks="face, slam">
+  </script>
+
+<!-- Copyright (c) 2023 8th Wall, Inc. -->
+<!-- head.html is optional; elements will be added to your html head before app.js is loaded. -->
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+    }
+  }
+</script>
+
+<script type="module">
+  import * as THREE from 'three';
+  import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+  import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+  import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+  import { GlitchPass } from 'three/addons/postprocessing/GlitchPass.js';
+  import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+  import { TexturePass } from 'three/addons/postprocessing/TexturePass.js';
+  import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
+  import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+
+  window.THREE = { ...THREE };
+  window.THREE.GLTFLoader = GLTFLoader;
+  window.THREE.EffectComposer = EffectComposer;
+  window.THREE.RenderPass = RenderPass;
+  window.THREE.GlitchPass = GlitchPass;
+  window.THREE.OutputPass = OutputPass;
+  window.THREE.TexturePass = TexturePass;
+  window.THREE.AfterimagePass = AfterimagePass;
+  window.THREE.ShaderPass = ShaderPass;
+  window.dispatchEvent(new CustomEvent('threeloaded'));
+</script>
+
+<meta name="8thwall:package" content="@8thwall.xrextras"/>
+<meta name="8thwall:package" content="@8thwall.landing-page"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+
+</head>
+
+<body>
+<script src="bundle.js"></script>
+<!-- Copyright (c) 2023 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+</body>
+
+</html>

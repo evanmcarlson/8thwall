@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>aframe splines</title>
+  <meta itemprop="name" content="aframe splines">
+  <meta name="twitter:title" content="aframe splines">
+  <meta property="og:title" content="aframe splines">
+  <meta property="og:site_name" content="aframe splines">
+  <meta name="description" content="this project demonstrates animated splines in an a-frame experience">
+  <meta itemprop="description" content="this project demonstrates animated splines in an a-frame experience">
+  <meta property="og:description" content="this project demonstrates animated splines in an a-frame experience">
+  <meta name="twitter:description" content="this project demonstrates animated splines in an a-frame experience">
+  <script crossorigin="anonymous" src="./external/scripts/8frame-1.4.1.min.js"></script>
+  <script crossorigin="anonymous" src="./external/xrextras/xrextras.js"></script>
+  <script crossorigin="anonymous" src="./external/landing-page/landing-page.js"></script>
+  <script crossorigin="anonymous" src="./external/xr/xr.js" async="true" data-preload-chunks="face, slam">
+  </script>
+
+<meta name="8thwall:renderer" content="aframe:1.4.1"/>
+<meta name="8thwall:package" content="@8thwall.xrextras"/>
+<meta name="8thwall:package" content="@8thwall.landing-page"/>
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+    }
+  }
+</script>
+
+<script type="module">
+  import * as THREE from 'three';
+  import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+  window.THREE = { ...THREE };
+  window.THREE.GLTFLoader = GLTFLoader;
+</script>
+
+</head>
+
+<body>
+<script src="bundle.js"></script>
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+<a-scene
+  xrextras-tap-recenter
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  xrextras-gesture-detector
+  renderer="colorManagement: true"
+  xrweb="allowedDevices: any">
+  <a-entity
+    light="
+      type: directional; 
+      castShadow: true; 
+      color: white; 
+      intensity: 0.5"
+    position="5 10 7">
+  </a-entity>
+
+  <a-light type="ambient" intensity="0.5"></a-light>
+
+  <a-camera position="0 4 5"></a-camera>
+
+  <a-box
+    xrextras-one-finger-rotate
+    position="0 0.5 0"
+    material="
+      color: #AD50FF; shader: flat; 
+      src: https://cdn.8thwall.com/web/assets/cube-texture.png"
+    shadow>
+  </a-box>
+
+  <a-entity splines></a-entity>
+
+  <a-plane
+    height="2000"
+    width="2000"
+    rotation="-90 0 0"
+    material="shader: shadow; opacity: 0.67"
+    shadow>
+  </a-plane>
+</a-scene>
+
+</body>
+
+</html>

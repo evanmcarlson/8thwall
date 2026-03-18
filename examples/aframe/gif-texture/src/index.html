@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>a-frame: gif shader</title>
+  <meta itemprop="name" content="a-frame: gif shader">
+  <meta name="twitter:title" content="a-frame: gif shader">
+  <meta property="og:title" content="a-frame: gif shader">
+  <meta property="og:site_name" content="a-frame: gif shader">
+  <meta name="description" content="this project demonstrates how to use a gif as a texture in a-frame">
+  <meta itemprop="description" content="this project demonstrates how to use a gif as a texture in a-frame">
+  <meta property="og:description" content="this project demonstrates how to use a gif as a texture in a-frame">
+  <meta name="twitter:description" content="this project demonstrates how to use a gif as a texture in a-frame">
+  <script crossorigin="anonymous" src="./external/scripts/8frame-1.2.0.min.js"></script>
+  <script crossorigin="anonymous" src="./external/xrextras/xrextras.js"></script>
+  <script crossorigin="anonymous" src="./external/landing-page/landing-page.js"></script>
+  <script crossorigin="anonymous" src="./external/xr/xr.js" async="true" data-preload-chunks="face, slam">
+  </script>
+
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- head.html is optional; elements will be added to your html head before app.js is loaded. -->
+
+<!-- Use "8thwall:" meta tags to hook into 8th Wall's build process and developer tools. -->
+<meta name="8thwall:renderer" content="aframe:1.2.0"/>
+<meta name="8thwall:package" content="@8thwall.xrextras"/>
+<meta name="8thwall:package" content="@8thwall.landing-page"/>
+
+</head>
+
+<body>
+<script src="bundle.js"></script>
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+<a-scene
+  xrextras-tap-recenter
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  xrextras-gesture-detector
+  xrweb="allowedDevices: any">
+  <a-assets>
+    <img id="nyan" src="./assets/nyan.gif" />
+  </a-assets>
+
+  <a-entity
+    light="
+      type: directional; 
+      castShadow: true; 
+      color: white; 
+      intensity: 0.5"
+    position="5 10 7">
+  </a-entity>
+
+  <a-camera position="0 2 2"></a-camera>
+
+  <a-box
+    xrextras-one-finger-rotate
+    position="0 0.5 0"
+    material="shader: gif; src: #nyan; color:green; opacity: .8"
+    shadow>
+  </a-box>
+
+  <a-plane
+    height="2000"
+    width="2000"
+    rotation="-90 0 0"
+    material="shader: shadow; opacity: 0.67"
+    shadow>
+  </a-plane>
+</a-scene>
+
+</body>
+
+</html>

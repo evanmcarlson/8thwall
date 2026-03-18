@@ -1,0 +1,317 @@
+{
+  "activeCamera": "a608ddd9-9379-464d-966f-5d8d8674c83c",
+  "objects": {
+    "47699d9e-18a5-4f88-a4f9-b8be92e8f74a": {
+      "components": {},
+      "geometry": null,
+      "id": "47699d9e-18a5-4f88-a4f9-b8be92e8f74a",
+      "light": {
+        "intensity": 0.7,
+        "type": "ambient"
+      },
+      "material": null,
+      "name": "ambient",
+      "order": 0.5134304512831935,
+      "position": [
+        10,
+        5,
+        5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "hidden": false
+    },
+    "66ed9bea-c576-43d9-a664-abca60350e0a": {
+      "components": {},
+      "geometry": null,
+      "id": "66ed9bea-c576-43d9-a664-abca60350e0a",
+      "light": {
+        "castShadow": false,
+        "intensity": 0.7,
+        "type": "directional"
+      },
+      "material": null,
+      "name": "directional",
+      "order": 1.212098584265986,
+      "position": [
+        1.5306061712204562,
+        5.186774162958127,
+        4.90661291852098
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "hidden": false
+    },
+    "a608ddd9-9379-464d-966f-5d8d8674c83c": {
+      "camera": {
+        "allowedDevices": "mobile",
+        "direction": "front",
+        "type": "perspective",
+        "xr": {
+          "desktop": "AR",
+          "face": {
+            "enableEars": false,
+            "maxDetections": 1,
+            "meshGeometryFace": true,
+            "mirroredDisplay": true,
+            "meshGeometryEyes": false
+          },
+          "phone": "AR",
+          "xrCameraType": "face"
+        },
+        "xrCameraType": "face"
+      },
+      "components": {},
+      "geometry": null,
+      "hidden": false,
+      "id": "a608ddd9-9379-464d-966f-5d8d8674c83c",
+      "material": null,
+      "name": "camera",
+      "order": -1,
+      "position": [
+        0,
+        2,
+        0
+      ],
+      "rotation": [
+        0,
+        1,
+        0,
+        -6.123233995736766e-17
+      ],
+      "scale": [
+        0.9999998646558023,
+        0.9999999931513284,
+        0.9999998715044741
+      ]
+    },
+    "1adf1912-8f70-40a4-8101-c97144b0f9fd": {
+      "id": "1adf1912-8f70-40a4-8101-c97144b0f9fd",
+      "position": [
+        0,
+        2,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": null,
+      "material": null,
+      "components": {
+        "3887586e-59ba-4d2c-a7d4-cbd054a20d37": {
+          "id": "3887586e-59ba-4d2c-a7d4-cbd054a20d37",
+          "name": "face-anchor",
+          "parameters": {}
+        }
+      },
+      "face": {
+        "id": 1,
+        "addAttachmentState": false
+      },
+      "name": "face"
+    },
+    "7a0827c0-51b7-42ba-8081-309452015504": {
+      "id": "7a0827c0-51b7-42ba-8081-309452015504",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": {
+        "type": "face",
+        "id": 1
+      },
+      "material": {
+        "type": "basic",
+        "color": "#FFFFFF",
+        "opacityMap": {
+          "type": "asset",
+          "asset": "assets/Alpha/soft-eyes-mouth.png"
+        },
+        "textureSrc": {
+          "type": "asset",
+          "asset": "assets/subtle.png"
+        },
+        "opacity": 0.99,
+        "metalness": 0,
+        "roughness": 1
+      },
+      "parentId": "1adf1912-8f70-40a4-8101-c97144b0f9fd",
+      "components": {
+        "f7a9f20d-0ea1-4258-b61d-e75217e55f71": {
+          "id": "f7a9f20d-0ea1-4258-b61d-e75217e55f71",
+          "name": "face-mesh-anchor",
+          "parameters": {}
+        }
+      },
+      "name": "face mesh",
+      "hidden": false,
+      "order": 0.7938895565092063
+    },
+    "ded9dfd7-e0e3-4310-b177-7ba89d104e56": {
+      "id": "ded9dfd7-e0e3-4310-b177-7ba89d104e56",
+      "position": [
+        -0.336413546267084,
+        1.7422696621700293,
+        0.51
+      ],
+      "rotation": [
+        0,
+        0,
+        0.13052619222005157,
+        0.9914448613738105
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "geometry": {
+        "type": "plane",
+        "width": 1,
+        "height": 1
+      },
+      "material": {
+        "type": "basic",
+        "color": "#FFFFFF",
+        "textureSrc": {
+          "type": "asset",
+          "asset": "assets/cdg.png"
+        },
+        "depthWrite": true,
+        "depthTest": true,
+        "opacity": 0.99,
+        "blending": "normal"
+      },
+      "parentId": "c6619021-93a8-4d3d-94a8-46262ef281b6",
+      "components": {
+        "b63b3ba1-a011-4454-8962-ba2580eaf691": {
+          "id": "b63b3ba1-a011-4454-8962-ba2580eaf691",
+          "name": "look-at-animation",
+          "parameters": {
+            "target": {
+              "type": "entity",
+              "id": "a608ddd9-9379-464d-966f-5d8d8674c83c"
+            }
+          }
+        }
+      },
+      "name": "left",
+      "order": 0.8182294190575856
+    },
+    "3b5d8bd1-e02d-412b-85db-89d140c5131f": {
+      "id": "3b5d8bd1-e02d-412b-85db-89d140c5131f",
+      "position": [
+        0.336,
+        1.74,
+        0.51
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.13052619222005157,
+        0.9914448613738105
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "geometry": {
+        "type": "plane",
+        "width": 1,
+        "height": 1
+      },
+      "material": {
+        "type": "basic",
+        "color": "#FFFFFF",
+        "textureSrc": {
+          "type": "asset",
+          "asset": "assets/cdg.png"
+        },
+        "depthWrite": true,
+        "depthTest": true,
+        "opacity": 0.99,
+        "blending": "normal"
+      },
+      "parentId": "c6619021-93a8-4d3d-94a8-46262ef281b6",
+      "components": {
+        "62ce585d-1303-4a4e-b101-9605352e599d": {
+          "id": "62ce585d-1303-4a4e-b101-9605352e599d",
+          "name": "look-at-animation",
+          "parameters": {
+            "target": {
+              "type": "entity",
+              "id": "a608ddd9-9379-464d-966f-5d8d8674c83c"
+            }
+          }
+        }
+      },
+      "name": "right",
+      "order": 2.6364588381151712
+    },
+    "c6619021-93a8-4d3d-94a8-46262ef281b6": {
+      "id": "c6619021-93a8-4d3d-94a8-46262ef281b6",
+      "position": [
+        0,
+        -2,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "1adf1912-8f70-40a4-8101-c97144b0f9fd",
+      "components": {},
+      "name": "hearts",
+      "order": 2.2233273301734835
+    }
+  },
+  "historyVersion": "m36076dn"
+}

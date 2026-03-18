@@ -1,0 +1,25 @@
+{
+  "imagePath": "image-targets/shirt_luminance.jpeg",
+  "resources": {
+    "originalImage": "shirt_original.jpeg",
+    "croppedImage": "shirt_cropped.jpeg",
+    "thumbnailImage": "shirt_thumbnail.jpeg",
+    "geometryImage": "shirt_geometry.jpeg",
+    "luminanceImage": "shirt_luminance.jpeg"
+  },
+  "name": "shirt",
+  "type": "PLANAR",
+  "properties": {
+    "top": 0,
+    "left": 190,
+    "width": 1140,
+    "height": 1520,
+    "isRotated": false,
+    "originalWidth": 1520,
+    "originalHeight": 1520
+  },
+  "userMetadataIsJson": true,
+  "loadAutomatically": true,
+  "created": 1688000851471,
+  "updated": 1688000860130
+}

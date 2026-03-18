@@ -1,0 +1,20 @@
+<meta name="8thwall:renderer" content="aframe:1.4.1" />
+<meta name="8thwall:package" content="@8thwall.xrextras" />
+<meta name="8thwall:package" content="@8thwall.landing-page" />
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+    }
+  }
+</script>
+
+<script type="module">
+  import * as THREE from 'three';
+  import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+  window.THREE = { ...THREE };
+  window.THREE.GLTFLoader = GLTFLoader;
+</script>
